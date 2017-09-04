@@ -9,17 +9,22 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @history << { :date => Time.now.strftime("%d/%m/%Y") , :credit => amount, :balance => balance }
+    @history << { :date => date , :credit => amount, :balance => balance }
   end
 
   def withdraw(amount)
     raise "Sorry, not enough balance!" if amount > @balance
     @balance -= amount
-    @history << { :date => Time.now.strftime("%d/%m/%Y"), :debit => amount, :balance => balance }
+    @history << { :date => date , :debit => amount, :balance => balance }
   end
 
   def return_history
     @history.sort_by { |h| h[:date] }.reverse
+  end
+
+  private
+  def date
+    date =  Time.now.strftime("%d/%m/%Y")
   end
 
 end

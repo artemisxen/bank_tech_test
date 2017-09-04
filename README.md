@@ -31,6 +31,7 @@ date || credit || debit || balance
 
 * git clone https://github.com/artemisxen/bank_tech_test.git
 * cd bank_tech_test
+* bundle install
 * irb
 * require './lib/account'
 * require './lib/statement'

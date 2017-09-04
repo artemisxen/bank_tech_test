@@ -1,17 +1,13 @@
 class Statement
-
-  def initialize(account)
-    @account = account
-  end
-
-  def print_statement
-    puts " date || credit || debit || balance "
-    transaction_output
+  def print(transactions)
+    puts ' date || credit || debit || balance '
+    transaction_output(transactions)
   end
 
   private
-  def transaction_output
-    @account.return_history.each do |transaction|
+
+  def transaction_output(transactions)
+    transactions.each do |transaction|
       puts "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
     end
   end

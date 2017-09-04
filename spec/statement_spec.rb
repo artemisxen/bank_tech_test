@@ -1,10 +1,10 @@
 require 'statement'
 
 describe Statement do
-  subject(:statement) { described_class.new (account) }
-  let(:account) { double:account, return_history: [{:date=>"04/09/2017", :credit=>300, :balance=>300}] }
+  subject(:statement) { described_class.new }
+  let(:transactions) { [{ date: '10/09/2017', credit: 300, balance: 300 }] }
 
-  it "prints the statement for an account" do
-    expect(statement.print_statement).to eq account.return_history
+  it 'prints the statement for an account' do
+    expect { statement.print(transactions) }.to output(" date || credit || debit || balance \n10/09/2017 || 300 ||  || 300\n").to_stdout
   end
 end

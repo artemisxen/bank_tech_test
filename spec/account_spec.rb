@@ -11,8 +11,8 @@ describe Account do
       expect(account.balance).to eq 0
     end
 
-    it 'starts with empty history' do
-      expect(account.history).to be_empty
+    it 'starts with empty array of transactions' do
+      expect(account.transactions).to be_empty
     end
   end
 
@@ -23,8 +23,8 @@ describe Account do
       expect(account.balance).to eq deposit_amount
     end
 
-    it 'stores the deposit data in history' do
-      expect(account.history.length).to eq 1
+    it 'stores the deposit data in transactions' do
+      expect(account.transactions.length).to eq 1
     end
   end
 
@@ -38,8 +38,8 @@ describe Account do
       expect(account.balance).to eq 200
     end
 
-    it 'stores the withdrawal data in history' do
-      expect(account.history.length).to eq 2
+    it 'stores the withdrawal data in transactions' do
+      expect(account.transactions.length).to eq 2
     end
 
     it "can't withdraw amount less than the balance" do

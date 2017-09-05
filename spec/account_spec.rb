@@ -2,10 +2,10 @@ require 'account'
 
 describe Account do
   subject(:account) { described_class.new(statement) }
-  let(:statement) { double:statement, print: '10/7/2017 || 300 || || 300' }
+  let(:statement) { double:statement, print: '10/7/2017 || 300.00 || || 300.00' }
   let(:deposit_amount) { 500 }
   let(:withdrawal_amount) { 300 }
-  let(:wrong_amount) { -400.30 }
+  let(:wrong_amount) { -400 }
 
   context '#initialize' do
     it 'has 0 initial balance' do
@@ -54,7 +54,6 @@ describe Account do
     it "the amount can't be negative" do
       expect { account.withdraw(wrong_amount) }.to raise_error("Sorry, the amount can't be negative!")
     end
-
   end
 
   context '#print_statement' do

@@ -1,17 +1,19 @@
 class Statement
+
+  def initialize
+    @row = Row.new
+  end
+
   def print(transactions)
-    puts 'date || credit || debit || balance '
-    transaction_output(transactions)
+    puts 'date || credit || debit || balance'
+    puts transaction_output(transactions)
   end
 
   private
 
   def transaction_output(transactions)
-    transactions.each do |transaction|
-      credit = return_float(transaction[:credit]) if transaction[:credit]
-      debit = return_float(transaction[:debit]) if transaction[:debit]
-      balance = return_float(transaction[:balance])
-      puts "#{transaction[:date]} || #{credit} || #{debit} || #{balance}"
+    transactions.map do |transaction|
+      @row.display_transaction(transaction)
     end
   end
 

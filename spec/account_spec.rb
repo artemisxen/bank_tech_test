@@ -2,6 +2,7 @@ require 'account'
 
 describe Account do
   subject(:account) { described_class.new(statement) }
+
   let(:statement) { double:statement, print: '10/7/2017 || 300.00 || || 300.00' }
   let(:deposit_amount) { 500 }
   let(:withdrawal_amount) { 300 }
@@ -29,13 +30,6 @@ describe Account do
       expect(account.transactions.length).to eq 1
     end
 
-    it 'the amount should be a number' do
-      expect { account.deposit(invalid_amount) }.to raise_error('Invalid amount!')
-    end
-
-    it "the amount can't be negative" do
-      expect { account.deposit(negative_amount) }.to raise_error("The amount can't be negative!")
-    end
   end
 
   context '#withdraw' do
@@ -52,17 +46,6 @@ describe Account do
       expect(account.transactions.length).to eq 2
     end
 
-    it "can't withdraw amount less than the balance" do
-      expect { account.withdraw(withdrawal_amount) }.to raise_error('Not enough balance!')
-    end
-
-    it 'the amount should be a number' do
-      expect { account.withdraw(invalid_amount) }.to raise_error('Invalid amount!')
-    end
-
-    it "the amount can't be negative" do
-      expect { account.withdraw(negative_amount) }.to raise_error("The amount can't be negative!")
-    end
   end
 
   context '#print_statement' do

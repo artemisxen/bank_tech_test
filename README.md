@@ -10,10 +10,6 @@
 
 ```
 As a client
-So that I can manage my money
-I want to be able to have a bank account
-
-As a client
 So that I can have savings
 I want to be able to make deposits to my account
 
@@ -42,18 +38,24 @@ Statement class is only responsible for creating the printed output of the trans
 Account class is responsible for deposits, withdrawals and printing the statements.
 
 ### Instructions
-* git clone https://github.com/artemisxen/bank_tech_test.git
-* cd bank_tech_test
-* bundle install
+```
+> git clone https://github.com/artemisxen/bank_tech_test.git
+> cd bank_tech_test
+> bundle install
+```
 
 ###### To run the code:
-* irb
+type ```irb```
+```ruby
 * require './lib/account'
 * require './lib/statement'
+* require './lib/row'
 * account = Account.new(Statement.new)
 * account.deposit(2000)
 * account.withdraw(500)
 * account.print_statement
-
+```
 ###### To run the tests:
-* rspec
+```
+> rspec
+```

@@ -10,12 +10,14 @@ class Account
   end
 
   def deposit(amount)
+    raise "Sorry, invalid amount!" unless amount.is_a? Numeric
     raise "Sorry, the amount can't be negative!" if amount < MIN_BALANCE
     @balance += amount
     @transactions << { date: date, credit: amount, balance: balance }
   end
 
   def withdraw(amount)
+    raise "Sorry, invalid amount!" unless amount.is_a? Numeric
     raise "Sorry, the amount can't be negative!" if amount < MIN_BALANCE
     raise 'Sorry, not enough balance!' if amount > @balance
     @balance -= amount

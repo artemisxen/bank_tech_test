@@ -6,7 +6,7 @@ describe Account do
   let(:deposit_amount) { 500 }
   let(:withdrawal_amount) { 300 }
   let(:negative_amount) { -400 }
-  let(:invalid_amount) { "invalid_amount" }
+  let(:invalid_amount) { 'invalid_amount' }
 
   context '#initialize' do
     it 'has 0 initial balance' do
@@ -29,12 +29,12 @@ describe Account do
       expect(account.transactions.length).to eq 1
     end
 
-    it "the amount should be a number" do
-      expect { account.deposit(invalid_amount) }.to raise_error("Sorry, invalid amount!")
+    it 'the amount should be a number' do
+      expect { account.deposit(invalid_amount) }.to raise_error('Invalid amount!')
     end
 
     it "the amount can't be negative" do
-      expect { account.deposit(negative_amount) }.to raise_error("Sorry, the amount can't be negative!")
+      expect { account.deposit(negative_amount) }.to raise_error("The amount can't be negative!")
     end
   end
 
@@ -53,15 +53,15 @@ describe Account do
     end
 
     it "can't withdraw amount less than the balance" do
-      expect { account.withdraw(withdrawal_amount) }.to raise_error('Sorry, not enough balance!')
+      expect { account.withdraw(withdrawal_amount) }.to raise_error('Not enough balance!')
     end
 
-    it "the amount should be a number" do
-      expect { account.withdraw(invalid_amount) }.to raise_error("Sorry, invalid amount!")
+    it 'the amount should be a number' do
+      expect { account.withdraw(invalid_amount) }.to raise_error('Invalid amount!')
     end
 
     it "the amount can't be negative" do
-      expect { account.withdraw(negative_amount) }.to raise_error("Sorry, the amount can't be negative!")
+      expect { account.withdraw(negative_amount) }.to raise_error("The amount can't be negative!")
     end
   end
 

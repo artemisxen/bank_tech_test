@@ -1,6 +1,6 @@
 class Statement
   def print(transactions)
-    puts ' date || credit || debit || balance '
+    puts 'date || credit || debit || balance '
     transaction_output(transactions)
   end
 

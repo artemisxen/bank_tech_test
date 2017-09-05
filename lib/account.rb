@@ -10,18 +10,18 @@ class Account
   end
 
   def deposit(amount)
-    raise "Sorry, invalid amount!" unless amount.is_a? Numeric
-    raise "Sorry, the amount can't be negative!" if amount < MIN_BALANCE
+    raise 'Invalid amount!' unless numeric(amount)
+    raise "The amount can't be negative!" if amount < MIN_BALANCE
     @balance += amount
-    @transactions << { date: date, credit: amount, balance: balance }
+    transactions << { date: date, credit: amount, balance: balance }
   end
 
   def withdraw(amount)
-    raise "Sorry, invalid amount!" unless amount.is_a? Numeric
-    raise "Sorry, the amount can't be negative!" if amount < MIN_BALANCE
-    raise 'Sorry, not enough balance!' if amount > @balance
+    raise 'Invalid amount!' unless numeric(amount)
+    raise "The amount can't be negative!" if amount < MIN_BALANCE
+    raise 'Not enough balance!' if amount > @balance
     @balance -= amount
-    @transactions << { date: date, debit: amount, balance: balance }
+    transactions << { date: date, debit: amount, balance: balance }
   end
 
   def print_statement
@@ -35,7 +35,11 @@ class Account
   end
 
   def return_transactions
-    @transactions.sort_by { |h| h[:date] }.reverse
+    transactions.sort_by { |h| h[:date] }.reverse
+  end
+
+  def numeric(amount)
+    amount.is_a? Numeric
   end
 
 end

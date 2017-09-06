@@ -7,16 +7,17 @@ class Account
     @balance = MIN_BALANCE
     @transactions = []
     @statement = statement
+    @transaction = Transaction
   end
 
   def deposit(amount)
     @balance += amount
-    transactions << { date: date, credit: amount, balance: balance }
+    transactions << @transaction.new(credit: amount, balance: @balance)
   end
 
   def withdraw(amount)
     @balance -= amount
-    transactions << { date: date, debit: amount, balance: balance }
+    transactions << @transaction.new(debit: amount, balance: @balance)
   end
 
   def print_statement
@@ -25,16 +26,8 @@ class Account
 
   private
 
-  def date
-    Time.now.strftime('%d/%m/%Y')
-  end
-
   def return_transactions
     transactions.sort_by { |h| h[:date] }.reverse
-  end
-
-  def numeric(amount)
-    amount.is_a? Numeric
   end
 
 end

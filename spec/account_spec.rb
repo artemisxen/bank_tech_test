@@ -19,18 +19,18 @@ describe Account do
     end
   end
 
-  context '#deposit' do
-    before(:each) { account.deposit(deposit_amount) }
-
-    it 'can make a deposit' do
-      expect(account.balance).to eq deposit_amount
-    end
-
-    it 'stores the deposit data in transactions' do
-      expect(account.transactions.length).to eq 1
-    end
-
-  end
+  # context '#deposit' do
+  #   before(:each) { account.deposit(deposit_amount) }
+  #
+  #   it 'can make a deposit' do
+  #     expect(account.balance).to eq deposit_amount
+  #   end
+  #
+  #   it 'stores the deposit data in transactions' do
+  #     expect(account.transactions.length).to eq 1
+  #   end
+  #
+  # end
 
   context '#withdraw' do
     before(:each) do
@@ -50,7 +50,8 @@ describe Account do
 
   context '#print_statement' do
     it 'prints the account statement' do
-      expect(account.print_statement).to eq statement.print
+      account.print_statement
+      expect(statement).to have_received(:print)
     end
   end
 end

@@ -3,7 +3,7 @@ require 'account'
 describe Account do
   subject(:account) { described_class.new(statement) }
 
-  let(:statement) { double:statement, print: '10/7/2017 || 300.00 || || 300.00' }
+  let(:statement) { double :statement, print: '10/7/2017 || 300.00 || || 300.00' }
   let(:deposit_amount) { 500 }
   let(:withdrawal_amount) { 300 }
   let(:negative_amount) { -400 }
@@ -19,21 +19,21 @@ describe Account do
     end
   end
 
-  # context '#deposit' do
-  #   before(:each) { account.deposit(deposit_amount) }
-  #
-  #   it 'can make a deposit' do
-  #     expect(account.balance).to eq deposit_amount
-  #   end
-  #
-  #   it 'stores the deposit data in transactions' do
-  #     expect(account.transactions.length).to eq 1
-  #   end
-  #
-  # end
+  context '#deposit' do
+    before { account.deposit(deposit_amount) }
+
+    it 'can make a deposit' do
+      expect(account.balance).to eq deposit_amount
+    end
+
+    it 'stores the deposit data in transactions' do
+      expect(account.transactions.length).to eq 1
+    end
+
+  end
 
   context '#withdraw' do
-    before(:each) do
+    before do
       account.deposit(deposit_amount)
       account.withdraw(withdrawal_amount)
     end
@@ -49,7 +49,7 @@ describe Account do
   end
 
   context '#print_statement' do
-    it 'prints the account statement' do
+    it 'calls print method of statement' do
       account.print_statement
       expect(statement).to have_received(:print)
     end

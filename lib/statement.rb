@@ -17,7 +17,4 @@ class Statement
     end
   end
 
-  def return_float(number)
-    '%.2f' % number
-  end
 end

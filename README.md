@@ -31,11 +31,17 @@ date || credit || debit || balance
 
 ### Code structure
 
-The code structure consists of two classes: Account and Statement.
-
-Statement class is only responsible for creating the printed output of the transactions.
+The code structure consists of four classes: Account, Transaction, Statement and Row.
 
 Account class is responsible for deposits, withdrawals and printing the statements.
+
+Transaction class is storing the data of every new transaction.
+
+Statement class is responsible for creating the printed output of the transactions.
+
+Row class is displaying every row of the transactions.
+
+
 
 ### Instructions
 ```
@@ -48,6 +54,7 @@ Account class is responsible for deposits, withdrawals and printing the statemen
 type ```irb```
 ```ruby
 * require './lib/account'
+* require './lib/transaction'
 * require './lib/statement'
 * require './lib/row'
 * account = Account.new(Statement.new)

@@ -6,8 +6,8 @@ class Account
   def initialize(statement = Statement.new)
     @balance = MIN_BALANCE
     @transactions = []
-    @statement = statement
     @transaction = Transaction
+    @statement = statement
   end
 
   def deposit(amount)
@@ -27,7 +27,7 @@ class Account
   private
 
   def return_transactions
-    transactions.sort_by { |h| h[:date] }.reverse
+    transactions.sort_by { |date| }.reverse
   end
 
 end

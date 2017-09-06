@@ -7,19 +7,19 @@ class Row
   private
 
   def date(transaction)
-    transaction[:date]
+    transaction.date
   end
 
   def credit(transaction)
-    return_float(transaction[:credit]) if transaction[:credit]
+    return_float(transaction.credit) if transaction.credit
   end
 
   def debit(transaction)
-    return_float(transaction[:debit]) if transaction[:debit]
+    return_float(transaction.debit) if transaction.debit
   end
 
   def balance(transaction)
-    return_float(transaction[:balance]) if transaction[:balance]
+    return_float(transaction.balance) if transaction.balance
   end
 
   def return_float(number)

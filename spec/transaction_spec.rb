@@ -11,16 +11,4 @@ describe Transaction do
     allow(Time).to receive(:now).and_return (Time.new(2017,07,10))
     expect(transaction.date).to eq date
   end
-
-  it 'returns the credit' do
-    expect(transaction.credit).to eq credit
-  end
-
-  it 'returns the debit' do
-    expect(transaction.debit). to eq debit
-  end
-
-  it 'returns the balance' do
-    expect(transaction.balance). to eq balance
-  end
 end

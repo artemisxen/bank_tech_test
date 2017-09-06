@@ -1,5 +1,4 @@
 class Row
-
   def display_transaction(transaction)
     "#{date(transaction)} || #{credit(transaction)} || #{debit(transaction)} || #{balance(transaction)}"
   end
@@ -25,5 +24,4 @@ class Row
   def return_float(number)
     '%.2f' % number
   end
-
 end

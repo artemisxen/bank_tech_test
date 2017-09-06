@@ -3,7 +3,6 @@ require 'statement'
 describe Statement do
   subject(:statement) { described_class.new }
 
-  # let(:row) { double :row, display_transaction: "10/07/2017 || 300 ||  || 300" }
   let(:transaction) { double :transaction , date:'10/07/2017', debit:nil, credit: 300, balance: 300}
   let(:transactions) { [transaction] }
 

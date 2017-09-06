@@ -1,5 +1,4 @@
 class Statement
-
   def initialize
     @row = Row.new
   end
@@ -11,10 +10,11 @@ class Statement
 
   private
 
+  attr_reader :row
+
   def transaction_output(transactions)
     transactions.map do |transaction|
-      @row.display_transaction(transaction)
+      row.display_transaction(transaction)
     end
   end
-
 end

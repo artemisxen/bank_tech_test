@@ -1,5 +1,5 @@
 class Account
-  attr_reader :balance, :transactions
+  attr_reader :balance, :transactions, :transaction
 
   MIN_BALANCE = 0
 
@@ -12,12 +12,12 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    transactions << @transaction.new(credit: amount, balance: @balance)
+    transactions << transaction.new(credit: amount, balance: balance)
   end
 
   def withdraw(amount)
     @balance -= amount
-    transactions << @transaction.new(debit: amount, balance: @balance)
+    transactions << transaction.new(debit: amount, balance: balance)
   end
 
   def print_statement
@@ -29,5 +29,4 @@ class Account
   def return_transactions
     transactions.sort_by { |date| }.reverse
   end
-
 end

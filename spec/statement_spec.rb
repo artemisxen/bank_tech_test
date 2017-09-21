@@ -3,7 +3,7 @@ require 'statement'
 describe Statement do
   subject(:statement) { described_class.new }
 
-  let(:transaction) { double :transaction , date:'10/07/2017', debit:nil, credit: 300, balance: 300}
+  let(:transaction) { double :transaction, date: '10/07/2017', debit: nil, credit: 300, balance: 300 }
   let(:transactions) { [transaction] }
 
   it 'prints the statement for an account' do

@@ -8,7 +8,7 @@ describe Transaction do
   let(:balance) { 200 }
 
   it 'returns the date' do
-    allow(Time).to receive(:now).and_return (Time.new(2017,07,10))
+    allow(Time).to receive(:now).and_return Time.new(2017,07,10)
     expect(transaction.date).to eq date
   end
 end
